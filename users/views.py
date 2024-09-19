@@ -1,7 +1,29 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import AuthenticationForm, PasswordResetForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordResetForm
 from django.contrib.auth import login as auth_login
 
+
+def sign_up(request):
+        """
+        Handles user registration. If the request method is POST, it processes the 
+        form data. If the form is valid, it creates a new user, logs them in, and 
+        redirects to the home page. Otherwise, it displays the registration form.
+        """
+        if request.method == 'POST':
+            form = UserCreationForm(request.POST)
+            if form.is_valid():
+                user = form.save()  
+                auth_login(request, user)  
+                return redirect('home')  
+        else:
+            form = UserCreationForm()  
+            
+        return render(request, 'users/sign_up.html', 
+                      {'form': form,
+                       "title": "Sign Up",
+                       "form_message": "Sign up to the FUT Tracker community"
+                       })
+    
 
 def login(request):
     """
@@ -42,19 +64,3 @@ def login(request):
             form = PasswordResetForm()  
         return render(request, 'users/password_reset.html', {'form': form})
     
-    
-    def register(request):
-        """
-        Handles user registration. If the request method is POST, it processes the 
-        form data. If the form is valid, it creates a new user, logs them in, and 
-        redirects to the home page. Otherwise, it displays the registration form.
-        """
-        if request.method == 'POST':
-            form = UserCreationForm(request.POST)
-            if form.is_valid():
-                user = form.save()  
-                auth_login(request, user)  
-                return redirect('home')  
-        else:
-            form = UserCreationForm()  
-        return render(request, 'users/register.html', {'form': form})

@@ -1,0 +1,32 @@
+{% extends "users_base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'users/create_account.css' %}">
+{% endblock %}{% block title %}User Login{% endblock %}
+
+{% block form_header %}Sign up to join the Fut Tracker community{% endblock %}
+
+{% block form_content %}
+<form method="post">
+    {% csrf_token %}
+    <div class='inputs_container'>
+    <div class="uname_container">
+                <label for="uname"><b>Email:</b></label>
+                <input type="text" placeholder="Enter Email" name="uname" required>
+        </div>
+        <div class="pwd_container">
+            <label for="pwd"><b>Enter Password:</b></label>
+            <input type="password" placeholder="Enter Password" name="pwd" required>
+        </div>
+        <div class="confirm_pwd_container">
+            <label for="pwd"><b>Confirm Password:</b></label>
+            <input type="password" placeholder="Enter Password" name="pwd" required>
+        </div>
+    </div>
+    <div class="button-container">
+        <button class="sign_up_btn">Sign Up</button>
+    </div>
+</form>
+
+{% endblock %}
