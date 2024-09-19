@@ -48,19 +48,22 @@ def login(request):
                    })
     
     
-    def password_reset(request):
-        """
-        Handles password reset requests. If the request method is POST, it processes 
-        the form data. If the form is valid, it initiates the password reset process 
-        and redirects to a confirmation page. Otherwise, it displays the password 
-        reset form.
-        """
-        if request.method == 'POST':
-            form = PasswordResetForm(request.POST)
-            if form.is_valid():
-                form.save(request=request)  
-                return redirect('password_reset_done')  
-        else:
-            form = PasswordResetForm()  
-        return render(request, 'users/password_reset.html', {'form': form})
-    
+def password_reset(request):
+    """
+    Handles password reset requests. If the request method is POST, it processes 
+    the form data. If the form is valid, it initiates the password reset process 
+    and redirects to a confirmation page. Otherwise, it displays the password 
+    reset form.
+    """
+    if request.method == 'POST':
+        form = PasswordResetForm(request.POST)
+        if form.is_valid():
+            form.save(request=request)  
+            return redirect('password_reset_done')  
+    else:
+        form = PasswordResetForm()  
+    return render(request, 'users/password_reset.html', 
+                  {'form': form,
+                   "title": "Log In",
+                   "form_message": "Please enter the Email address your registered with in order to reset your password"
+                   })
