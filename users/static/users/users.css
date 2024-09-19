@@ -65,3 +65,72 @@ body {
     margin-top: 10px;
     /* Add some margin from the top */
 }
+
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* Tooltip text (hidden by default) */
+.tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 8px;
+    border-radius: 5px;
+
+    /* Position the tooltip */
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+
+    /* Tooltip arrow */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Show the tooltip when hovering over the container */
+.tooltip-container:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Styling the tooltip arrow */
+.tooltip-text::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    /* Position the arrow at the bottom */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Icon for the tooltip */
+.tooltip-icon {
+    font-size: 16px;
+    color: #007bff;
+}
+
+/* Styling the input and form */
+.inputs_container {
+    margin: 20px 0;
+}
+
+.uname_container,
+.pwd_container {
+    margin-bottom: 15px;
+}
+
+input {
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}

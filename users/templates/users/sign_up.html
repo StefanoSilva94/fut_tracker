@@ -8,25 +8,27 @@
 {% block form_header %}Sign up to join the Fut Tracker community{% endblock %}
 
 {% block form_content %}
+
 <form method="post">
     {% csrf_token %}
     <div class='inputs_container'>
-    <div class="uname_container">
-                <label for="uname"><b>Email:</b></label>
-                <input type="text" placeholder="Enter Email" name="uname" required>
+        <div class="uname_container">
+            <label for="id_username"><b>Username:</b></label>
+            <input type="text" id="id_username" name="username" placeholder="Enter Username" required>
         </div>
         <div class="pwd_container">
-            <label for="pwd"><b>Enter Password:</b></label>
-            <input type="password" placeholder="Enter Password" name="pwd" required>
+            <label for="id_password1"><b>Password:</b></label>
+            <input type="password" id="id_password1" name="password1" placeholder="Enter Password" required>
         </div>
         <div class="confirm_pwd_container">
-            <label for="pwd"><b>Confirm Password:</b></label>
-            <input type="password" placeholder="Enter Password" name="pwd" required>
+            <label for="id_password2"><b>Confirm Password:</b></label>
+            <input type="password" id="id_password2" name="password2" placeholder="Confirm Password" required>
         </div>
     </div>
     <div class="button-container">
-        <button class="sign_up_btn">Sign Up</button>
+        <button type="submit" class="sign_up_btn">Sign Up</button>
     </div>
 </form>
+
 
 {% endblock %}

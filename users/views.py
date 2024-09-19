@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordResetForm
 from django.contrib.auth import login as auth_login
+from django.contrib import messages
 
 
 def sign_up(request):
@@ -10,11 +11,17 @@ def sign_up(request):
         redirects to the home page. Otherwise, it displays the registration form.
         """
         if request.method == 'POST':
+            print("attempting to login")
             form = UserCreationForm(request.POST)
             if form.is_valid():
+                
                 user = form.save()  
                 auth_login(request, user)  
-                return redirect('home')  
+                messages.success(request, 'Registration successful.')
+                return redirect('home')
+            else:
+                messages.error(request, 'Please correct the errors below.')
+                # print(form.errors)
         else:
             form = UserCreationForm()  
             
