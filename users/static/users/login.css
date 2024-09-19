@@ -1,0 +1,47 @@
+label {
+    align-self: flex-start;
+    font-weight: bold;
+}
+
+
+.remember_me {
+    display: flex;
+    padding: 10px;
+    padding-left: 15px;
+    align-self: flex-start;
+}
+
+
+.login_btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 145px;
+}
+
+.login_btn:hover {
+    background-color: #0056b3;
+}
+
+.user_links {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.user_links a {
+    color: black;
+    /* font-weight: bold; */
+    text-decoration: none;
+}
+
+.user_links a:hover {
+    text-decoration: underline;
+}
