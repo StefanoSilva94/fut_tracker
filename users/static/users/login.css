@@ -6,9 +6,8 @@ label {
 
 .remember_me {
     display: flex;
-    padding: 10px;
-    padding-left: 15px;
-    align-self: flex-start;
+    align-items: center;
+    gap: 2px;
 }
 
 
@@ -27,21 +26,21 @@ label {
     background-color: #0056b3;
 }
 
-.user_links {
-    padding-top: 20px;
-    padding-bottom: 20px;
+.user_links_container {
+    /* padding-top: 20px;
+    padding-bottom: 20px; */
     display: flex;
     flex-direction: column;
     gap: 10px;
 
 }
 
-.user_links a {
+.user_links_container a {
     color: black;
     /* font-weight: bold; */
     text-decoration: none;
 }
 
-.user_links a:hover {
+.user_links_container a:hover {
     text-decoration: underline;
 }

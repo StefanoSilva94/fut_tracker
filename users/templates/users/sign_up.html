@@ -7,28 +7,34 @@
 
 {% block form_header %}Sign up to join the Fut Tracker community{% endblock %}
 
-{% block form_content %}
-
-<form method="post">
-    {% csrf_token %}
-    <div class='inputs_container'>
-        <div class="uname_container">
+{% block inputs_container %}
+    <div class="uname_container">
+        <div class="label_container">
             <label for="id_username"><b>Username:</b></label>
-            <input type="text" id="id_username" name="username" placeholder="Enter Username" required>
+            <div class="tooltip"> (?)
+                <span class="tooltiptext">Tooltip text</span>
+            </div>
         </div>
-        <div class="pwd_container">
+        <input type="text" id="id_username" name="username" placeholder="Enter Username" required>
+    </div>
+
+    <div class="pwd_container">
+        <div class="label_container">
             <label for="id_password1"><b>Password:</b></label>
-            <input type="password" id="id_password1" name="password1" placeholder="Enter Password" required>
-        </div>
-        <div class="confirm_pwd_container">
-            <label for="id_password2"><b>Confirm Password:</b></label>
-            <input type="password" id="id_password2" name="password2" placeholder="Confirm Password" required>
-        </div>
+            <div class="tooltip"> (?)
+                <span class="tooltiptext">Tooltip text</span>
+            </div>
+        </div>    
+        <input type="password" id="id_password1" name="password1" placeholder="Enter Password" required>
     </div>
-    <div class="button-container">
-        <button type="submit" class="sign_up_btn">Sign Up</button>
+    <div class="confirm_pwd_container">
+        <label for="id_password2"><b>Confirm Password:</b></label>
+        <input type="password" id="id_password2" name="password2" placeholder="Confirm Password" required>
     </div>
-</form>
-
-
+ 
 {% endblock %}
+
+{% block button_container %}
+    <button type="submit" class="sign_up_btn">Sign Up</button>
+{% endblock %}
+

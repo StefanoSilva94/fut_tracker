@@ -17,12 +17,25 @@
     </div>
 
     <div class="form-wrapper">
-        <div class="imgcontainer">
-            <img src="../../static/img/logo.png" alt="Avatar" class="avatar">
-        </div>
-        {% block form_content %}
-        {% endblock %}
 
+        <form method="post">
+            {% csrf_token %}
+            <div class="imgcontainer">
+                <img src="../../static/img/logo.png" alt="Avatar" class="avatar">
+            </div>
+            <div class="inputs_container">
+                {% block inputs_container %}
+                {% endblock %}
+            </div>
+            <div class="button_container">
+                {% block button_container %}
+                {% endblock %}
+            </div>
+            <div class="user_links_container">
+                {% block user_links_container %}
+                {% endblock %}
+            </div>
+        </form>
     </div>
  
 </body>

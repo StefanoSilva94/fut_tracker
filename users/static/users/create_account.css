@@ -3,8 +3,18 @@ label {
     font-weight: bold;
 }
 
-.inputs_container input{
-    margin-bottom: 5px;
+.tooltip {
+    margin-left: 5px;
+    color: #0056b3;
+    cursor: pointer;
+}
+
+.label_container {
+    display: flex;
+    align-items: center;
+    /* Vertically center the tooltip with the label */
+    justify-content: flex-start;
+    /* Align items to the left */
 }
 
 .sign_up_btn {

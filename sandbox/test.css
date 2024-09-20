@@ -1,0 +1,89 @@
+html,
+body {
+    margin: 0;
+    background-color: rgb(70, 98, 118);
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    background-color: black;
+    padding: 0px 40px;
+    align-items: center;
+}
+
+.navbar a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 18px;
+}
+
+.navbar a:last-child {
+    margin-left: auto;
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    color: #333;
+    ;
+}
+
+
+.logo {
+    width: 50px;
+    /* Adjust the width to fit the size you want */
+    height: auto;
+    /* Keep the aspect ratio */
+
+}
+
+@media screen and (max-width: 700px) {
+
+    .row,
+    .navbar {
+        flex-direction: column;
+    }
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.form-wrapper {
+    margin: auto;
+    background-color: lightgrey;
+    border: 2.5px solid darkgray;
+    border-radius: 30px;
+    width: 500px;
+    margin-bottom: 40px;
+    text-align: center;
+    padding-top: 30 px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px 0px 20px;
+    gap: 15px;
+}
+
+.user_links {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px 0px 20px;
+    gap: 15px;
+}
+
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    color: white;
+}
+
