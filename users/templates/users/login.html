@@ -5,33 +5,29 @@
     <link rel="stylesheet" href="{% static 'users/login.css' %}">
 {% endblock %}
 
-{% block form_content %}
-    <form method="post">
-        {% csrf_token %}
-        {{ form.non_field_errors }}
-        <div class='inputs_container'>
-            <div class="uname_container">
-                {{ form.username.label_tag }}
-                {{ form.username }}
-                {{ form.username.errors }}       
-            </div>
-            <div class="pwd_container">
-                {{ form.password.label_tag }} 
-                {{ form.password }}     
-                {{ form.password.errors }}       
-            </div>
+{% block inputs_container %}
+{{ form.non_field_errors }}
+        <div class="uname_container">
+            {{ form.username.label_tag }}
+            {{ form.username }}
+            {{ form.username.errors }}       
         </div>
-        <div class="remember_me">
-            {{ form.remember_me }} 
-            {{ form.remember_me.label_tag }} 
+        <div class="pwd_container">
+            {{ form.password.label_tag }} 
+            {{ form.password }}     
+            {{ form.password.errors }}  
+        <div class="remember_me"> 
+            <input type="checkbox" checked="checked" name="remember"> Remember me  
+        </div>  
         </div>
-        <div class="button-container">
-            <button class="login_btn" type="submit">Log In</button>
-        </div>
-        <div class="user_links">
-            <a href="#">Forgot Password</a>
-            <a href="{% url "sign_up" %}">Not a user? Create Account</a>
-        </div>
-    </form>
+        
+{% endblock %}
 
+{% block button_container %}
+        <button class="login_btn" type="submit">Log In</button>
+{% endblock %}
+
+{% block user_links_container %}
+        <a href="#">Forgot Password</a>
+        <a href="{% url "sign_up" %}">Not a user? Create Account</a>
 {% endblock %}

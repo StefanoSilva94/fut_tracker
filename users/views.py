@@ -21,14 +21,16 @@ def sign_up(request):
                 return redirect('home')
             else:
                 messages.error(request, 'Please correct the errors below.')
-                # print(form.errors)
+                print(form.errors)
         else:
             form = UserCreationForm()  
             
         return render(request, 'users/sign_up.html', 
                       {'form': form,
                        "title": "Sign Up",
-                       "form_message": "Sign up to the FUT Tracker community"
+                       "form_message": "Sign up to the FUT Tracker community",
+                       "username_tooltip": "Please enter a valid email address",
+                       "password1_tooltip": "Password must contain 6 characters, at least one number and at least one lowercase (a-z) letter",
                        })
     
 
