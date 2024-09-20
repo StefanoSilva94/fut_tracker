@@ -10,9 +10,9 @@
 {% block inputs_container %}
     <div class="uname_container">
         <div class="label_container">
-            <label for="id_username"><b>Username:</b></label>
+            <label for="id_username"><b>Email:</b></label>
             <div class="tooltip"> (?)
-                <span class="tooltiptext">Tooltip text</span>
+                <span class="tooltiptext"> {{ username_tooltip }} </span>
             </div>
         </div>
         <input type="text" id="id_username" name="username" placeholder="Enter Username" required>
@@ -22,7 +22,7 @@
         <div class="label_container">
             <label for="id_password1"><b>Password:</b></label>
             <div class="tooltip"> (?)
-                <span class="tooltiptext">Tooltip text</span>
+                <span class="tooltiptext">{{ password1_tooltip }} </span>
             </div>
         </div>    
         <input type="password" id="id_password1" name="password1" placeholder="Enter Password" required>

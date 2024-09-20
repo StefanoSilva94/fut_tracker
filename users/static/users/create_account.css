@@ -12,9 +12,7 @@ label {
 .label_container {
     display: flex;
     align-items: center;
-    /* Vertically center the tooltip with the label */
     justify-content: flex-start;
-    /* Align items to the left */
 }
 
 .sign_up_btn {
