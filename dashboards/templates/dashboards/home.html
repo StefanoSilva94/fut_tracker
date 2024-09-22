@@ -1,4 +1,46 @@
+{% extends "base.html" %}
 {% load static %}
 {% include "includes/header.html" %}
 
-<p>Hello World</p>
+{% block widgets %}
+<div class="widgets-container">
+    
+    <div class="widget">
+        <div class="widget-content">
+            <h3 class="widget-title">Total Packs Opened:</h3>
+            <p class="widget-stat"> {{ total_packs }}</p>
+        </div>
+        <img class="widget-icon" src="{% static '../static/img/pack_icon.png' %}" alt="Pack Icon">
+    </div>
+
+        <div class="widget">
+        <div class="widget-content">
+            <h3 class="widget-title">Total Picks Opened:</h3>
+            <p class="widget-stat">{{ total_picks }}</p>
+        </div>
+        <img class="widget-icon" src="{% static '../static/img/player_pick_icon.png' %}" alt="Pack Icon">
+    </div>
+
+        <div class="widget">
+        <div class="widget-content">
+            <h3 class="widget-title">Total TOTWs Packed:</h3>
+            <p class="widget-stat">1234</p>
+        </div>
+        <img class="widget-icon" src="{% static '../static/img/TOTW.png' %}" alt="Pack Icon">
+    </div>
+
+        <div class="widget">
+        <div class="widget-content">
+            <h3 class="widget-title">Total Promos Packed:</h3>
+            <p class="widget-stat">1234</p>
+        </div>
+        <img class="widget-icon" src="{% static '../static/img/world_tour.png' %}" alt="Pack Icon">
+    </div>
+
+</div>
+
+{% endblock %}
+
+<div>
+Promo pack percentages
+</div>

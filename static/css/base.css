@@ -1,0 +1,99 @@
+html,
+body {
+    margin: 0;
+    background-color: rgb(70, 98, 118);
+    font-family: Arial, sans-serif;
+}
+
+.widgets-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 30px;
+}
+
+.widget {
+    display: flex;
+    /* Layout flexbox */
+    justify-content: space-between;
+    /* Align the content (text + stat) and the image */
+    align-items: flex-start;
+    /* Align the content and image at the top */
+    background-color: white;
+    /* White background for the widget */
+    padding: 20px;
+    /* Padding inside the widget */
+    border-radius: 10px;
+    /* Slightly curved corners */
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    /* Optional: Add a shadow for depth */
+}
+
+.widget-content {
+    display: flex;
+    flex-direction: column;
+    /* Stack the title and stat vertically */
+}
+
+.widget-title {
+    margin: 0;
+    /* Remove default margin */
+    font-size: 1.2em;
+    /* Adjust size for title */
+    color: #666;
+    /* Title color */
+}
+
+.widget-stat {
+    margin-top: 20px;
+    /* 20px gap between title and stat */
+    font-size: 1.5em;
+    /* Adjust font size for the stat */
+    color: #333;
+    /* Stat color */
+}
+
+.widget-icon {
+    margin-left: 30px;
+    width: 50px;
+    /* Set size of the icon */
+    height: 50px;
+    object-fit: contain;
+    /* Ensure the image fits inside the box without distortion */
+}
+
+.widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.widget-header h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.widget-header .icon {
+    font-size: 24px;
+        width: 3rem;
+        height: 4rem;
+}
+
+.widget-stat p {
+    font-size: 24px;
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* For smaller screens, stack the widgets vertically */
+@media (max-width: 768px) {
+    .widgets-container {
+        flex-direction: column;
+    }
+
+    .widget {
+        width: 100%;
+        /* Make widgets full width on small screens */
+    }
+}

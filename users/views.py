@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordResetForm
-from django.contrib.auth import login as auth_login
+from django.contrib.auth import login as auth_login, logout as auth_logout
 from django.contrib import messages
 
 
@@ -56,6 +56,14 @@ def login(request):
                    "form_message": "Log in using your email and password"
                    })
     
+    
+def logout_view(request):
+    """
+    Handles user logout
+    """
+    auth_logout(request)
+    return redirect('login')
+
     
 def password_reset(request):
     """
