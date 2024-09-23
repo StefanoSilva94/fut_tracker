@@ -41,6 +41,48 @@
 
 {% endblock %}
 
-<div>
-Promo pack percentages
+
+{% block main_chart %}
+<div class="bootstrap-styled-section">
+    <div class="chart-container">
+        <label for="pack-select">Select Pack:</label>
+        <select id="pack-select">
+            <option value="">Select a Pack</option>
+            {% for pack in pack_names %}
+                <option value="{{ pack }}">{{ pack }}</option>
+            {% endfor %}
+        </select>
+
+
+        <label for="time-filter">Time Filter:</label>
+        <select id="time-filter">
+            <option value="all_time">All Time</option>
+            <option value="1_week">Last Week</option>
+            <option value="since_friday">Since Friday</option>
+        </select>
+
+        <button id="plot-button">Plot</button> 
+
+        <!-- Chart.js chart -->
+        <canvas id="ratingsChart"></canvas>
+    </div>
 </div>
+{% endblock %}
+
+{% block js %}
+{% comment %} <script>
+        // Get the pack_names variable from Django
+        const packNames = {{ pack_names|safe }};  // Make sure to use safe to avoid escaping
+        console.log("test", packNames)
+
+        const packSelect = document.getElementById('pack-select');
+
+        // Populate the dropdown
+        packNames.forEach(pack => {
+            const option = document.createElement('option');
+            option.value = pack;
+            option.textContent = pack;
+            packSelect.appendChild(option);
+        });
+</script> {% endcomment %}
+{% endblock %}
