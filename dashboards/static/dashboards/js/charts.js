@@ -51,7 +51,7 @@ function plotChart(labels, counts) {
       labels: labels,
       datasets: [
         {
-          label: "Data",
+          label: "Pack Ratings",
           data: counts,
           backgroundColor: "rgba(75, 192, 192, 0.2)",
           borderColor: "rgba(75, 192, 192, 1)",
@@ -60,6 +60,7 @@ function plotChart(labels, counts) {
       ],
     },
     options: {
+      responsive: true,
       scales: {
         y: {
           beginAtZero: true,

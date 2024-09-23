@@ -49,7 +49,7 @@ def get_pack_data(request):
     if time_filter_query:
         query += " AND " + time_filter_query
 
-    query += " GROUP BY rating"
+    query += " GROUP BY rating ORDER BY rating"
 
     # Debugging: Print the query before execution
     print("Executing query:", query)
