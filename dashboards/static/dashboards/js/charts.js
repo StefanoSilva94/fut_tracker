@@ -11,6 +11,7 @@ document.getElementById("plot-button").addEventListener("click", function () {
   }
 
   // Send the POST request
+  console.log("csrfToken: ", csrfToken);
   fetch("api/get_pack_data/", {
     method: "POST",
     headers: {
