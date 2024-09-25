@@ -61,6 +61,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    "https://www.fut-tracker.co.uk",
+    "https://fut-tracker.co.uk", 
+]
+
 ROOT_URLCONF = 'fut_tracker.urls'
 
 TEMPLATES = [

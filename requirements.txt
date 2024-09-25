@@ -17,4 +17,5 @@ scipy==1.14.1
 setuptools-scm==8.1.0
 six==1.16.0
 sqlparse==0.5.1
+uvloop==0.20.0
 uvtools==0.2.0

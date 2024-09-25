@@ -1,0 +1,14 @@
+[Unit]
+Description=gunicorn instance to server fut-tracker.co.uk
+After=network.target
+
+[Service]
+User=stefanosilva94
+Group=stefanosilva94
+WorkingDirectory=/home/stefanosilva94/fut-tracker/fut_tracker/
+Environment="PATH=/home/stefanosilva94/fut-tracker/fut_tracker/venv/bin"
+EnvironmentFile=/home/stefanosilva94/.env
+ExecStart=/home/stefanosilva94/fut-tracker/fut_tracker/venv/bin/gunicorn --workers 3 --bind 0.0.0.0:8001 fut_tracker.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
