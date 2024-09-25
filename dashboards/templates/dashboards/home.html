@@ -41,6 +41,34 @@
 
 {% endblock %}
 
-<div>
-Promo pack percentages
+
+{% block main_chart %}
+<div class="bootstrap-styled-section">
+    <div class="chart-container">
+        <h2 class="chart-title">My Chart</h2>
+        <div class="chart-inputs-container">
+            <label for="pack-select">Select Pack:</label>
+            <select id="pack-select">
+                <option value="">Select a Pack</option>
+                {% for pack in pack_names %}
+                    <option value="{{ pack }}">{{ pack }}</option>
+                {% endfor %}
+            </select>
+
+
+            <label for="time-filter">Time Filter:</label>
+            <select id="time-filter">
+                <option value="all_time">All Time</option>
+                <option value="1_week">Last Week</option>
+                <option value="since_friday">Since Friday</option>
+            </select>
+
+            <button id="plot-button">Plot</button> 
+        </div>
+
+        <!-- Chart.js chart -->
+        <canvas id="ratingsChart"></canvas>
+    </div>
 </div>
+{% endblock %}
+

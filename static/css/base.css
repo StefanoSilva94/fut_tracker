@@ -1,3 +1,7 @@
+.bootstrap-styled-section {
+    /* This ensures that all elements inside will use Bootstrap styles */
+}
+
 html,
 body {
     margin: 0;
@@ -96,4 +100,22 @@ body {
         width: 100%;
         /* Make widgets full width on small screens */
     }
+}
+
+.chart-container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    background-color: white;
+}
+
+#ratingsChart {
+    max-width: 100%;
+    height: auto;
+    max-height: 400px;
+}
+
+select {
+    margin: 10px;
+    padding: 5px;
 }
