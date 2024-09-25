@@ -7,3 +7,7 @@ venv/
 
 # Django
 *.sqlite3
+
+.env
+
+/staticfiles/

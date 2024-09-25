@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from os import getenv
+from dotenv import load_dotenv
+
+# load env variables
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,11 +26,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-)isgv*^pbkq-5yd=4++2)-^c#t-fv1w1@!^!rc65w3=g@h=-&$'
+# SECRET_KEY = getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = getenv('IS_DEVELOPMENT', True)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    getenv('APP_HOST'),
+    '127.0.0.1'
+]
 
 
 # Application definition
@@ -79,12 +88,12 @@ WSGI_APPLICATION = 'fut_tracker.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'eafc_analysis_prod',          
-        'USER': 'postgres',          
-        'PASSWORD': 'Imp117qang',  
-        'HOST': '46.101.1.208',          
-        'PORT': '5432',     
+        'ENGINE': getenv('DJANGO_ENGINE'),
+        'NAME': getenv('DJANGO_NAME'),          
+        'USER': getenv('DJANGO_USER'),          
+        'PASSWORD': getenv('DJANGO_PASSWORD'),  
+        'HOST': getenv('DJANGO_HOST'),          
+        'PORT': getenv('DJANGO_PORT'),     
     }
 }
 
@@ -123,7 +132,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_URL = '/static/'
 
 
 STATICFILES_DIRS = [
