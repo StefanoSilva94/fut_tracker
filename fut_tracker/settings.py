@@ -34,7 +34,9 @@ DEBUG = getenv('IS_DEVELOPMENT', True)
 ALLOWED_HOSTS = [
     'www.fut-tracker.co.uk', 
     'fut-tracker.co.uk',
-    '127.0.0.1'
+    '127.0.0.1',
+    'api.fut-tracker.co.uk',
+    '46.101.1.208',
 ]
 
 
