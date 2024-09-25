@@ -32,7 +32,8 @@ SECRET_KEY = 'django-insecure-)isgv*^pbkq-5yd=4++2)-^c#t-fv1w1@!^!rc65w3=g@h=-&$
 DEBUG = getenv('IS_DEVELOPMENT', True)
 
 ALLOWED_HOSTS = [
-    getenv('APP_HOST'),
+    'www.fut-tracker.co.uk', 
+    'fut-tracker.co.uk',
     '127.0.0.1'
 ]
 

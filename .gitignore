@@ -11,3 +11,4 @@ venv/
 .env
 
 /staticfiles/
+old_nginx_default.conf
