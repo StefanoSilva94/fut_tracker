@@ -63,6 +63,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CSRF_COOKIE_SECURE = True  # Use True if your site is HTTPS
+CSRF_COOKIE_HTTPONLY = False  # Allow JavaScript to access the cookie
+CSRF_USE_SESSIONS = False  # Generally set to False
+
 CORS_ALLOWED_ORIGINS = [
     "https://www.fut-tracker.co.uk",
     "https://fut-tracker.co.uk", 
