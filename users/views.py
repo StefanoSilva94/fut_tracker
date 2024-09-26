@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordResetForm
 from django.contrib.auth import login as auth_login, logout as auth_logout, authenticate
 from django.contrib import messages
+import requests
 
 
 def sign_up(request):
@@ -11,13 +12,24 @@ def sign_up(request):
         redirects to the home page. Otherwise, it displays the registration form.
         """
         if request.method == 'POST':
-            print("attempting to login")
             form = UserCreationForm(request.POST)
             if form.is_valid():
-                
                 user = form.save()  
                 auth_login(request, user)  
                 messages.success(request, 'Registration successful.')
+
+                fastapi_url = 'https://api.fut-tracker.co.uk/users/'
+                try:
+
+                    response = requests.post(fastapi_url, json={
+                        'email': request.POST.get('username'),
+                        'password': request.POST.get('password1')
+                    })
+                    print(f"ressonse status code = {response.status_code}")
+
+                except Exception as e:
+                    print(f"error: {e}")
+
                 return redirect('home')
             else:
                 messages.error(request, 'Please correct the errors below.')

@@ -1,6 +1,7 @@
 # Python
 __pycache__/
 *.py[cod]
+sandbox.py
 
 # Virtual environment
 venv/
