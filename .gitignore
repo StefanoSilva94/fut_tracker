@@ -13,3 +13,4 @@ venv/
 
 /staticfiles/
 old_nginx_default.conf
+.idea/
