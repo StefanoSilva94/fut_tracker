@@ -74,7 +74,10 @@ def get_pack_data(request):
         'counts': counts
     })
 
-    
+
+def my_packs(request):
+    return render(request, 'dashboards/my_packs.html')
+
     
 def chart_view(request):
     # Example data to pass to the chart
