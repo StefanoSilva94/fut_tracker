@@ -76,10 +76,6 @@ def get_pack_data(request):
 
     
     
-def chart_view(request):
-    # Example data to pass to the chart
-    chart_data = {
-        'labels': ['January', 'February', 'March', 'April', 'May'],
-        'data': [10, 20, 30, 40, 50]
-    }
-    return render(request, 'dashboards/chart.html', {'chart_data': chart_data})
+def about_view(request):
+
+    return render(request, 'dashboards/about.html')
