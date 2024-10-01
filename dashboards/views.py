@@ -86,3 +86,7 @@ def chart_view(request):
         'data': [10, 20, 30, 40, 50]
     }
     return render(request, 'dashboards/chart.html', {'chart_data': chart_data})
+
+
+def privacy_policy(request):
+    return render(request, 'dashboards/privacy_policy.html')

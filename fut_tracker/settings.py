@@ -161,3 +161,27 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# CORS_ALLOW_CREDENTIALS = True
+# CORS_ALLOWED_ORIGINS = [
+#     'https://www.3rdpartysite.com',
+#     'chrome-extension://extension-id',
+# ]
+#
+# CSRF_TRUSTED_ORIGINS = [
+#     'https://www.3rdpartysite.com',
+#     'chrome-extension://extension-id',
+# ]
+# INSTALLED_APPS = [
+#
+#     'corsheaders', # at the top
+#     ...
+# ]
+#
+# MIDDLEWARE = [
+#     'corsheaders.middleware.CorsMiddleware',  # at the top
+#     ...,
+# ]
+#
+# SESSION_COOKIE_SAMESITE = None
