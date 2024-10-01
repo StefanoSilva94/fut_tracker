@@ -7,3 +7,4 @@ urlpatterns = [
     path('chart/', views.chart_view, name='chart_view'),
     path('privacy-policy/', views.privacy_policy, name='privacy_policy'),
     ]
+
