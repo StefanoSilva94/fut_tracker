@@ -74,8 +74,11 @@ def get_pack_data(request):
         'counts': counts
     })
 
-    
-    
-def about_view(request):
 
-    return render(request, 'dashboards/about.html')
+def my_packs(request):
+    return render(request, 'dashboards/my_packs.html')
+
+
+def privacy_policy(request):
+    return render(request, 'dashboards/privacy_policy.html')
+
