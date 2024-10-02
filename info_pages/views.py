@@ -9,4 +9,4 @@ def getting_started(request):
    
     
 def privacy_policy(request):
-    return render(request, 'info_pages/about.html')
+    return render(request, 'info_pages/privacy_policy.html')

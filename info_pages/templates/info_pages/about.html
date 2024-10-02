@@ -3,73 +3,94 @@
 {% include "includes/header.html" %}
 
 <style>
-html,
-body {
-    margin: 0;
-    background-color: rgb(70, 98, 118);
-    font-family: Arial, sans-serif;
-}
-.content_container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 60px 60px 30px;
-    margin: 60px 30px 0px 30px;
-    border-radius: 10px;
-    background-color: #EAEAEA;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1); 
-}
-
-.instructions_container {
-    
-}
-
-.header_container{
-    display:flex;
-    justify-content: flex-start;
-}
-
-.header_container h1, .intro_container p {
-    margin: 0; /* Removes default margins */
-}
-
-</style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #0056b3;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+        ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #777;
+            font-size: 14px;
+        }
+        .note {
+            background-color: #e0f7fa; /* Light blue background */
+            padding: 10px; /* Padding around the text */
+            border-radius: 5px; /* Rounded corners */
+            color: #007b8f; /* Darker blue text */
+        }
+    </style>
 <body>
-    <div class="content_container">
-        <div class="header_container">
-                <h1>Getting Started</h1>
-        </div>
-        <div class="intro_container">
-                <p>
-                FUT Tracker aims to help bring transparency to pack weight. It allows users to compare odds across different player picks and 
-                packs as well offer the chance to view all players that they pack across the game cycle.
-                </p>
-                Some SBCs we know are not always worth the cost, FUT Tracker lets you 'try before you buy'!
-                <img class=img1></img>
+    <div class="container">
+        <h1>Getting Started</h1>
+        <h2>Our Goal</h2>
+        <p>
+            <strong>FUT Tracker</strong> aims to help bring transparency to pack weight. 
+            It allows users to compare odds across different player picks and packs,
+            as well offer the chance to view all players that they pack across the game cycle. 
+            <br>Some SBCs we know are not always worth the cost, FUT Tracker lets you 'try before you buy'!</br>
+        </p>
+        <h2>Sign Up</h2>
+        <p>
+            Sign up to <strong>FUT Tracker</strong> using the link (url to be added). Once you have signed up this will allow you to 
+            to use our <strong>FUT Tracker</strong> extension and then view your data  on the site.
+        </p>
 
-            
-        </div>
-
-        <div class="instructions_container">
-            
-            <div>
-                To get the most out of FUT Tracker we recommend downloading our FUT Tracker Chrome extension: (PLACEHOLDER url)<br>
-                <img>PLACEHOLDER - Image of extension in Chrome store</img>
-            </div>
-            <div>
-                After downloading, you can click the extension icon in your browser and then click the FUT Tracker icon to open the login page.<br>
-                You can then log in using your FUT Tracker email and password.
-                <img>PLACEHOLDER - Image of login journey</img>
-
-                <div class="note_container">
-                    <h4>NOTE: If you have not signed up, please do so from: (PLACEHOLDER URL)</h3>
-                </div>
-            </div>
-            <div>
-                Next log in to FC 25 ultimate team on the web app - the extension will track the key data of each pack or player pick you open. <br>
-                You will be able to see a real time update of the items you get via the 'My Packs' section 
-
-        </div>
+        <h2>FUT Tracker Extension</h2>
+        <p>
+            To get the most out of <strong>FUT Tracker</strong> we recommend installing our 
+            <strong>FUT Tracker Chrome extension</strong> from the Chrome app store after you have create an account
+            on the <strong>FUT Tracker</strong> webiste. Once downloaded click the extension icon
+            and enter the email you have used to sign up to fut-tracker.co.uk and click Sync Email.
+        </p>
+        <p>
+            This will track the stats of every pack and player pick you open on the FC 25 web app and the results will
+            be visible on the <strong>FUT Tracker</strong> website. The data is used to show the odds for different 
+            packs and player picks. You can also export your pack data from the <strong>My Packs</strong> (URL to add) page.
+        </p>
+        <p class='note'>
+            NOTE: No private data is collected or used for the <strong>FUT Tracker Chrome extension</strong>, only
+            data from the packs and player picks.
+        </p>
     </div>
 
 
