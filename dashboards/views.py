@@ -78,15 +78,7 @@ def get_pack_data(request):
 def my_packs(request):
     return render(request, 'dashboards/my_packs.html')
 
-    
-def chart_view(request):
-    # Example data to pass to the chart
-    chart_data = {
-        'labels': ['January', 'February', 'March', 'April', 'May'],
-        'data': [10, 20, 30, 40, 50]
-    }
-    return render(request, 'dashboards/chart.html', {'chart_data': chart_data})
-
 
 def privacy_policy(request):
     return render(request, 'dashboards/privacy_policy.html')
+
