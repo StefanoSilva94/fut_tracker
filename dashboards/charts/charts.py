@@ -53,10 +53,10 @@ class ratingsDistributionsChart(baseChart):
         """
         card_type_query = f"""
             SELECT
-                COUNT(CASE WHEN CAST(raretype AS int) NOT IN (1, 3, 50, 51, 52, 1004) THEN 1 END) AS promo_count,
+                COUNT(CASE WHEN CAST(raretype AS int) NOT IN (0,1, 3, 50, 51, 52, 1004) THEN 1 END) AS promo_count,
                 COUNT(CASE WHEN CAST(raretype AS int) = 3 THEN 1 END) AS totw_count,
                 COUNT(CASE WHEN CAST(raretype AS int) IN (72, 161) THEN 1 END) AS hero_count,
-                COUNT(CASE WHEN CAST(raretype AS int) = 1004 THEN 1 END) AS icon_count,
+                COUNT(CASE WHEN CAST(raretype AS int) = 12 THEN 1 END) AS icon_count,
                 COUNT(CASE WHEN CAST(raretype AS int) = 1 THEN 1 END) AS normal_count
             FROM 
                 {self.table_name}
@@ -65,7 +65,7 @@ class ratingsDistributionsChart(baseChart):
         """
         total_packs_query = f"""
             SELECT COUNT(*) AS pack_count 
-            FROM {self.table_name}
+            FROM packs
             WHERE pack_name = '{self.pack_name}' AND {time_filter_query}
         """ 
         print(total_packs_query)

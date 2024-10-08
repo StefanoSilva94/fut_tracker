@@ -16,10 +16,10 @@ def home(request):
         cursor.execute("SELECT COUNT(DISTINCT(pack_id)) FROM player_picks")
         total_picks = cursor.fetchone()[0]
         
-        cursor.execute("SELECT DISTINCT(pack_name) FROM packed_items")
+        cursor.execute("SELECT DISTINCT(pack_name) FROM packed_items ORDER BY pack_name")
         pack_names = cursor.fetchall()
         
-        cursor.execute("SELECT DISTINCT(pack_name) FROM player_picks")
+        cursor.execute("SELECT DISTINCT(pack_name) FROM player_picks ORDER BY pack_name")
         pick_names = cursor.fetchall()
         
         # Flatten the list of tuples
