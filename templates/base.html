@@ -16,21 +16,22 @@
 
 <body>
     {% include "includes/header.html" %}
+    <div class='content-container'>
 
-    {% block widgets %}
-    {% endblock %}
+        {% block widgets %}
+        {% endblock %}
 
-    {% block main_chart %}
-    {% endblock %}
+        {% block main_chart %}
+        {% endblock %}
 
-    {% block js %}
-    {% endblock %}
-    <script>
-        const csrfToken = "{{ csrf_token }}"; 
-        console.log("csrf_token: ", csrfToken)
-    </script>
+        {% block js %}
+        {% endblock %}
+        <script>
+            const csrfToken = "{{ csrf_token }}"; 
+            console.log("csrf_token: ", csrfToken)
+        </script>
 
-
+    </div>  
     <script src="{% static 'dashboards/js/charts.js' %}"></script>
 
 </body>

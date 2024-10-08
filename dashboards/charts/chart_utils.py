@@ -8,7 +8,7 @@ def create_time_query_filter(timestamp_filter):
     current_date = datetime.now()
     
     if timestamp_filter == 'all_time':
-        pass
+        time_filter_query = f"created_at <= {current_date}"
     elif timestamp_filter == '1_week':
         one_week_ago = current_date - timedelta(days=7)
         time_filter_query = f"created_at > '{one_week_ago.strftime('%Y-%m-%d')}'"

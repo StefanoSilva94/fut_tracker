@@ -1,7 +1,7 @@
 html,
 body {
     margin: 0;
-    background-color: rgb(70, 98, 118);
+    background-color: #f4f4f4;
     font-family: Arial, sans-serif;
 }
 
@@ -11,7 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 10px;
-    color: white;
+    color: black;
 }
 
 .avatar {
@@ -24,13 +24,13 @@ body {
 /* styling for the form */
 .form-wrapper {
     margin: auto;
-    background-color: rgba(211, 211, 211, 0.764);
-    border: 2.5px solid darkgray;
+    /* border: 2.5px solid darkgray; */
     border-radius: 10px;
     width: 500px;
     margin-bottom: 40px;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
 
 
 }

@@ -44,31 +44,84 @@
 
 {% block main_chart %}
 <div class="bootstrap-styled-section">
-    <div class="chart-container">
-        <h2 class="chart-title">My Chart</h2>
-        <div class="chart-inputs-container">
-            <label for="pack-select">Select Pack:</label>
-            <select id="pack-select">
-                <option value="">Select a Pack</option>
-                {% for pack in pack_names %}
-                    <option value="{{ pack }}">{{ pack }}</option>
-                {% endfor %}
-            </select>
+    <div class="chart_widget_container">
+        <div id="pack-chart-container" class="chart-container">
+            <h3 class="chart-title">Pack Distributions</h3>
+            <div class="chart-inputs-container">
+                <label for="pack-select">Select Pack:</label>
+                <select class="pack-select">
+                    <option value="">Select a Pack</option>
+                    {% for pack in pack_names %}
+                        <option value="{{ pack }}">{{ pack }}</option>
+                    {% endfor %}
+                </select>
 
 
-            <label for="time-filter">Time Filter:</label>
-            <select id="time-filter">
-                <option value="all_time">All Time</option>
-                <option value="1_week">Last Week</option>
-                <option value="since_friday">Since Friday</option>
-            </select>
+                <label for="time-filter">Time Filter:</label>
+                <select class="time-filter">
+                    <option value="all_time">All Time</option>
+                    <option value="1_week">Last Week</option>
+                    <option value="since_friday">Since Friday</option>
+                </select>
 
-            <button id="plot-button">Plot</button> 
+                <button id="pack-chart-button" class="plot-button">Plot</button> 
+            </div>
+
+            <!-- Chart.js chart -->
+            <canvas class="ratings-chart" id="pack-ratings-chart"></canvas>
         </div>
-
-        <!-- Chart.js chart -->
-        <canvas id="ratingsChart"></canvas>
+        <div class="widget-container">
+            <h3>Summary Stats</h3>
+            <div id="pick-widget-container" class="widget-stat-container">
+                <div class="pack-count">Total Packs: <strong>{{ total_packs_count }} </strong></div>
+                <div class="promo-count">Promos: <strong>{{ promo_count }} </strong></div>
+                <div class="totw-count">TOTWs: <strong>{{ totw_count }} </strong></div>
+                <div class="hero-count">Base Heroes: <strong>{{ hero_count }} </strong></div>
+                <div class="icon-count">Base Icons: <strong>{{ icon_count }}</strong></div>
+                <div class="avg-value">Average Value: <strong> {{ total_packs_count }}</strong></div>
+            </div>
+        </div>
     </div>
+</div>
+<div class="bootstrap-styled-section">
+        <div class="chart_widget_container">
+            <div id="pick-chart-container" class="chart-container">
+                <h3 class="chart-title">Player Picks Distributions</h3>
+                <div class="chart-inputs-container">
+                    <label for="pack-select">Select Pack:</label>
+                    <select name="pack" class="pack-select">
+                        <option value="">Select a Pack</option>
+                        {% for pick in pick_names %}
+                            <option value="{{ pick }}">{{ pick }}</option>
+                        {% endfor %}
+                    </select>
+
+
+                    <label for="time-filter">Time Filter:</label>
+                    <select name="time" class="time-filter">
+                        <option value="all_time">All Time</option>
+                        <option value="1_week">Last Week</option>
+                        <option value="since_friday">Since Friday</option>
+                    </select>
+
+                    <button id="pick-chart-button" class="plot-button">Plot</button> 
+                </div>
+
+                <!-- Chart.js chart -->
+                <canvas class="ratings-chart" id="pick-ratings-chart"></canvas>
+            </div>
+            <div id="pick-widget-container" class="widget-container">
+                <h3>Summary Stats</h3>
+                <div class="widget-stat-container">
+                    <div class="pack-count">Total Packs: <strong>{{ total_packs_count }} </strong></div>
+                    <div class="promo-count">Promos: <strong>{{ promo_count }} </strong></div>
+                    <div class="totw-count">TOTWs: <strong>{{ totw_count }} </strong></div>
+                    <div class="hero-count">Base Heroes: <strong>{{ hero_count }} </strong></div>
+                    <div class="icon-count">Base Icons: <strong>{{ icon_count }}</strong></div>
+                    <div class="avg-value">Average Value: <strong> {{ total_packs_count }}</strong></div>
+                </div>
+            </div>
+        </div>
 </div>
 {% endblock %}
 
