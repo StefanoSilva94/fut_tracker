@@ -68,6 +68,13 @@ class ratingsDistributionsChart(baseChart):
             FROM packs
             WHERE pack_name = '{self.pack_name}' AND {time_filter_query}
         """ 
+        
+        
+        average_pack_value_query = f"""
+                                SELECT CAST(AVG(pack_value) AS INT) AS avg_pack_value FROM packs
+                                WHERE pack_name = '{self.pack_name}'
+        
+                               """
         print(total_packs_query)
                                 
         with connection.cursor() as cursor:
@@ -77,6 +84,9 @@ class ratingsDistributionsChart(baseChart):
                 
                 cursor.execute(total_packs_query)
                 self.total_packs_count = cursor.fetchall()
+                
+                cursor.execute(average_pack_value_query)
+                self.average_pack_value = cursor.fetchone()
                 
                 cursor.execute(card_type_query, [self.pack_name])
                 card_type_count = cursor.fetchall()

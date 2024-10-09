@@ -60,6 +60,7 @@ def create_distribution_rating_chart(request):
                         'hero_count': ratings_dist_chart.hero_count,
                         'icon_count': ratings_dist_chart.icon_count,
                         'total_packs_count': ratings_dist_chart.total_packs_count[0][0],
+                        'average_pack_value': ratings_dist_chart.average_pack_value[0],
                         'labels': [row[0] for row in ratings_dist_chart.ratings_count],
                         'counts': [row[1] for row in ratings_dist_chart.ratings_count]
                         })

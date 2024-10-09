@@ -42,7 +42,7 @@ function handleChartClick(endpoint, chartID, chartLabel, chartContainerID) {
       widgetContainer.querySelector('.totw-count strong').textContent = data.totw_count;
       widgetContainer.querySelector('.hero-count strong').textContent = data.hero_count;
       widgetContainer.querySelector('.icon-count strong').textContent = data.icon_count;
-
+      widgetContainer.querySelector('.avg-value strong').textContent = data.average_pack_value;
 
     })
     .catch((error) => {
