@@ -1,77 +1,45 @@
-<html>
+{% extends "info.html" %}
 {% load static %}
 {% include "includes/header.html" %}
 
-<style>
-html,
-body {
-    margin: 0;
-    background-color: rgb(70, 98, 118);
-    font-family: Arial, sans-serif;
-}
-.content_container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 60px 60px 30px;
-    margin: 60px 30px 0px 30px;
-    border-radius: 10px;
-    background-color: #EAEAEA;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1); 
-}
-
-.instructions_container {
-    
-}
-
-.header_container{
-    display:flex;
-    justify-content: flex-start;
-}
-
-.header_container h1, .intro_container p {
-    margin: 0; /* Removes default margins */
-}
-
-</style>
+{% block main_content %}
 <body>
-    <div class="content_container">
-        <div class="header_container">
-                <h1>Getting Started</h1>
-        </div>
-        <div class="intro_container">
-                <p>
-                FUT Tracker aims to help bring transparency to pack weight. It allows users to compare odds across different player picks and 
-                packs as well offer the chance to view all players that they pack across the game cycle.
-                </p>
-                Some SBCs we know are not always worth the cost, FUT Tracker lets you 'try before you buy'!
-                <img class=img1></img>
 
-            
-        </div>
+    <div class="container">
 
-        <div class="instructions_container">
-            
-            <div>
-                To get the most out of FUT Tracker we recommend downloading our FUT Tracker Chrome extension: (PLACEHOLDER url)<br>
-                <img>PLACEHOLDER - Image of extension in Chrome store</img>
-            </div>
-            <div>
-                After downloading, you can click the extension icon in your browser and then click the FUT Tracker icon to open the login page.<br>
-                You can then log in using your FUT Tracker email and password.
-                <img>PLACEHOLDER - Image of login journey</img>
+        <h1>Getting Started</h1>
+        <h2>Our Goal</h2>
+        <p>
+        <strong>FUT Tracker</strong> aims to help bring transparency to pack weight. It allows users to compare odds across different player picks and 
+        packs as well offer the chance to view all players that they pack across the game cycle.
+        Some SBCs we know are not always worth the cost, FUT Tracker lets you 'try before you buy'!
+        </p>
+        
+        <img class=img1></img>
+        <h2>How It Works</h2>
+        <p>
+            First create an account on <a href="fut-tracker.co.uk">fut-tracker.co.uk</a> so that you can link your email to our Chrome extension<br>
+            To get the most out of FUT Tracker we recommend downloading our <a href="https://chromewebstore.google.com/detail/fut-tracker/nagdddpmghinfnihkhbpoegopccbdhck" >FUT Tracker Chrome extension</a><br>
+            This is the tool that will actually track your pack and player pick data. After downloading the extension, click the extension icon
+            and enter the email you used to sign up.<br>
 
-                <div class="note_container">
-                    <h4>NOTE: If you have not signed up, please do so from: (PLACEHOLDER URL)</h3>
-                </div>
-            </div>
-            <div>
-                Next log in to FC 25 ultimate team on the web app - the extension will track the key data of each pack or player pick you open. <br>
-                You will be able to see a real time update of the items you get via the 'My Packs' section 
-
-        </div>
+        </p>
+        <p>
+            Now start opening packs on the FC25 webapp and view your results live on our <a href="{% url "my_packs" %}">My Packs</a> section
+        </p>
+        
+        <h2> Common questions </h2>
+        <p>
+            <strong>Do I need to link it to my Ultimate Team account?</strong> <br>
+            No! We will never ask you for your ultimate team login details, the extension works independently in the background of the web app.
+        </p>
+        <p>
+            <strong>Why do I need to sign up, can't I just view the website with making an account?</strong><br>
+            You do not need to sign up, you can view the home dashboard and see general stats there. However, an account is needed to 
+            sync with the extension so that you can track your individual stats
+        </p>
+ 
     </div>
 
-
 </body>
-</html>
+{% endblock %}

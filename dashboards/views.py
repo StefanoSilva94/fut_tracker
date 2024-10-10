@@ -129,6 +129,10 @@ def my_packs(request):
 def privacy_policy(request):
     return render(request, 'dashboards/privacy_policy.html')
 
+    
+def about_view(request):
+    return render(request, "dashboards/about.html")
+
 
 def get_counts_of_card_types(table_name, pack_name=None, user_id=None):
     """
@@ -207,3 +211,4 @@ def export_packed_items(request):
     else:
         # Return a forbidden response or redirect to login
         return HttpResponseForbidden("You are not authorized to access this resource.")
+    
