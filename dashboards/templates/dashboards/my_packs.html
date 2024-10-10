@@ -40,12 +40,13 @@
 
 </div>
 
-<div class="mb-3">
-    <a class="btn btn-success" href="{% url 'export_packed_items' %}?user_id={{ user_id }}">Export all data</a>
-</div>
+
 
 <table class="table table-bordered table-striped">
     <thead>
+        <div>
+            <a class="btn btn-success" href="{% url 'export_packed_items' %}?user_id={{ user_id }}">Export all data</a>
+        </div>
         <tr>
             <th>Player</th>
             <th>Rating</th>
