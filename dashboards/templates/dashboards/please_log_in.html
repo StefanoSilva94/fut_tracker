@@ -1,0 +1,16 @@
+{% extends "info.html" %}
+{% load static %}
+<style>
+    .h2-centred {
+        text-align: center;
+    }
+</style>
+
+
+{% block main_content %}
+<div class="container">
+    <h1>Please <a href="{% url "login" %}"><strong>Log In </strong></a> before viewing this page
+    <br><br>
+    Not a user? <a href="{% url "sign_up" %}"><strong>Create Account</strong></a></h1>
+</div>
+{% endblock %}

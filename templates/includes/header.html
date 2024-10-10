@@ -5,7 +5,8 @@
     <a href="{% url "home" %}"><img src="{% static '../static/img/logo.png' %}" alt="Logo" class="logo"></a>
     <a href="{% url "home" %}">Home</a>
     <a href="#">About</a>
-    <a href="#">Contact</a>
+    <a href="{% url "my_packs" %}">My Packs</a>
+    <a href="{% url "privacy_policy" %}">Contact</a>
     {% if user.is_authenticated %}
     <a href="{% url "logout" %}">Log Out</a>
     {% else %}

@@ -1,4 +1,43 @@
-<div>
+{% extends "base.html" %}
+{% load static %}
+{% include "includes/header.html" %}
+<title>My Packs</title>
 
-    huhuhuhuhuhuh
+{% block widgets %}
+<div class="widgets-container">
+    
+    <div class="widget">
+        <div class="widget-content">
+            <h3 class="widget-title">My Packs Opened:</h3>
+            <p class="widget-stat"> {{ my_packs }}</p>
+        </div>
+        <img class="widget-icon" src="{% static '../static/img/pack_icon.png' %}" alt="Pack Icon">
+    </div>
+
+        <div class="widget">
+        <div class="widget-content">
+            <h3 class="widget-title">My Picks Opened:</h3>
+            <p class="widget-stat">{{ my_picks }}</p>
+        </div>
+        <img class="widget-icon" src="{% static '../static/img/player_pick_icon.png' %}" alt="Pack Icon">
+    </div>
+
+        <div class="widget">
+        <div class="widget-content">
+            <h3 class="widget-title">My TOTWs Packed:</h3>
+            <p class="widget-stat">{{ my_totws}}</p>
+        </div>
+        <img class="widget-icon" src="{% static '../static/img/TOTW.png' %}" alt="Pack Icon">
+    </div>
+
+        <div class="widget">
+        <div class="widget-content">
+            <h3 class="widget-title">My Promos Packed:</h3>
+            <p class="widget-stat">{{ my_promos }}</p>
+        </div>
+        <img class="widget-icon" src="{% static '../static/img/world_tour.png' %}" alt="Pack Icon">
+    </div>
+
 </div>
+
+{% endblock %}
