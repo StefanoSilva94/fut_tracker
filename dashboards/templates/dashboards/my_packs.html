@@ -40,4 +40,53 @@
 
 </div>
 
+<div class="mb-3">
+    <a class="btn btn-success" href="{% url 'export_packed_items' %}?user_id={{ user_id }}">Export all data</a>
+</div>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Player</th>
+            <th>Rating</th>
+            <th>Position</th>
+            <th>Price</th>
+            <th>Pack</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in packed_items %}
+        <tr>
+            <td>{{ item.0 }}</td>  <!-- player name -->
+            <td>{{ item.2 }}</td>  <!-- rating -->
+            <td>{{ item.3 }}</td>  <!-- position -->
+            <td>{{ item.4 }}</td>  <!-- price -->
+            <td>{{ item.1 }}</td>  <!-- pack name -->
+            <td>{{ item.5 }}</td>  <!-- date -->
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5" class="text-center">No packed items found.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- Pagination Buttons -->
+<div class="d-flex justify-content-start mb-3">
+    {% if packed_items.has_previous %}
+    <a class="btn btn-primary me-2" href="?page=1&user_id={{ user_id }}">First</a>
+    <a class="btn btn-secondary me-2" href="?page={{ packed_items.previous_page_number }}&user_id={{ user_id }}">Previous</a>
+    {% endif %}
+
+    <span class="align-self-center me-2">Page {{ packed_items.number }} of {{ packed_items.paginator.num_pages }}</span> <!-- Same margin class -->
+
+    {% if packed_items.has_next %}
+    <a class="btn btn-secondary me-2" href="?page={{ packed_items.next_page_number }}&user_id={{ user_id }}">Next</a>
+    <a class="btn btn-primary" href="?page={{ packed_items.paginator.num_pages }}&user_id={{ user_id }}">Last</a> <!-- No margin on the last button -->
+    {% endif %}
+</div>
+
+
 {% endblock %}

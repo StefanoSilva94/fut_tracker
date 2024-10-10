@@ -5,6 +5,11 @@ from django.http import JsonResponse
 from .charts import charts
 import json
 from django.contrib.auth.decorators import login_required
+from .models import Player
+from django.core.paginator import Paginator
+import csv
+from django.http import StreamingHttpResponse, HttpResponseForbidden
+from io import StringIO
 
 
 
@@ -79,12 +84,44 @@ def my_packs(request):
     if request.user.is_authenticated:
         user_id = request.user.id
         
+        pack_counts = get_counts_of_card_types('packed_items', user_id=user_id)
+        pick_counts = get_counts_of_card_types('player_picks', user_id=user_id)
+        
+        totw_count = pack_counts.get('totw_count', 0) + pick_counts.get('totw_count', 0)
+        promo_count = pack_counts.get('promo_count', 0) + pick_counts.get('promo_count', 0)
+        
+        packed_items = []
+        
         with connection.cursor() as cursor:
-            cursor.execute(count_query, ['user_id'])
         
+            cursor.execute("SELECT COUNT(DISTINCT(pack_id)) FROM packed_items WHERE user_id = %s", [user_id])
+            my_packs = cursor.fetchone()[0]
+            
+            cursor.execute("SELECT COUNT(DISTINCT(pack_id)) FROM player_picks WHERE user_id = %s", [user_id])
+            my_picks = cursor.fetchone()[0]
+            
+            cursor.execute("""
+                SELECT name AS player, pack_name, rating, position, price, DATE(created_at) AS date
+                FROM packed_items
+                WHERE user_id = %s
+                ORDER BY created_at DESC
+            """, [user_id])
+            packed_items = cursor.fetchall()
+            
+        # Pagination setup (using list of tuples returned by fetchall)
+        paginator = Paginator(packed_items, 10)  # Show 10 items per page
+        page_number = request.GET.get('page')
+        paginated_items = paginator.get_page(page_number)        
         
-        
-        return render(request, 'dashboards/my_packs.html', {"title": "My Packs"})
+        return render(request, 'dashboards/my_packs.html', 
+                      {
+                        "title": "My Packs",
+                        "my_packs": my_packs,
+                        "my_picks": my_picks,
+                        "my_totws": totw_count,
+                        'my_promos': promo_count,
+                        'packed_items': paginated_items
+                          })
     else:
         return render(request, 'dashboards/please_log_in.html', {"title": "Log In Needed"})
 
@@ -141,3 +178,32 @@ def get_counts_of_card_types(table_name, pack_name=None, user_id=None):
             'icon_count': counts[3]
             }
     
+def generate_csv(user_id):
+    # Use a cursor to execute the raw SQL query
+    with connection.cursor() as cursor:
+        cursor.execute("""
+            SELECT name AS player, rating, position, price, pack_name, DATE(created_at) AS date
+            FROM packed_items
+            WHERE user_id = %s
+            ORDER BY created_at DESC
+        """, [user_id])
+        
+        # Write the header row
+        yield ','.join(['Player', 'Rating', 'Position', 'Price', 'Pack', 'Date']) + '\n'
+        
+        # Fetch and yield each row
+        for item in cursor.fetchall():
+            yield ','.join(map(str, item)) + '\n'
+
+def export_packed_items(request):
+    if request.user.is_authenticated:
+        user_id = request.user.id
+        
+        # Prepare the CSV response
+        response = StreamingHttpResponse(generate_csv(user_id), content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename="packed_items.csv"'
+        
+        return response
+    else:
+        # Return a forbidden response or redirect to login
+        return HttpResponseForbidden("You are not authorized to access this resource.")
