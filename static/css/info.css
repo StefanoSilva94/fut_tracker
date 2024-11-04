@@ -15,6 +15,7 @@ body {
     background-color: #fff;
     padding: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
 h1 {
@@ -59,4 +60,41 @@ footer {
     margin-top: 20px;
     color: #777;
     font-size: 14px;
+}
+
+.widget-icon,
+.img1 {
+    display: inline-block;
+    max-width: 100%;
+    /* Keeps images responsive */
+    height: auto;
+    margin: 10px 0;
+    /* Adds some spacing around images */
+}
+
+.img1 {
+    width: 100%;
+    /* Adjusts main image to full width */
+    border-radius: 5px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+    /* Soft shadow for depth */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    p {
+        font-size: 15px;
+    }
 }

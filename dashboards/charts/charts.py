@@ -98,5 +98,11 @@ class ratingsDistributionsChart(baseChart):
             except Exception as e:
                 print(f"An error occurred: {e}")
 
+
+class heroOrIconPackChart(baseChart):
+    """
+    This will create a chart that converts the y-axis into N buckets of price
+    It will plot how many players were packed in each price bucket
+    """
                     
         
